@@ -10,4 +10,6 @@ router.post('/', projectsController.postProject);
 
 router.delete('/:id', projectsController.deleteProject);
 
+router.put('/:id', projectsController.putProject);
+
 module.exports = router;

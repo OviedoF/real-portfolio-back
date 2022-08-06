@@ -29,6 +29,14 @@ const projectSchema = new Schema({
     type: {
         type: String,
         required: true
+    },
+    description_es: {
+        type: String,
+        required: true
+    },
+    description_en: {
+        type: String,
+        required: true
     }
 }, {
     versionKey: false,

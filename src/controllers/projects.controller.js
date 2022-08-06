@@ -49,6 +49,39 @@ projectsController.postProject = async (req, res) => {
     }
 }
 
+projectsController.putProject = async (req, res) => {
+    try {
+        const id = req.params.id;
+
+        if (req.files) {
+            const urls = [];
+
+            for (const el of req.files) {
+                const result = await cloudinary.v2.uploader.upload(el.path);
+                urls.push(result.secure_url);
+                await fs.unlink(el.path);
+            };
+
+            const body = {
+                ...req.body,
+                imagesUrls: urls
+            };
+
+            const actualizedProject = await Projects.findByIdAndUpdate(id, body);
+            res.status(200).send(actualizedProject);
+        } else {
+            const body = {
+                ...req.body
+            };
+
+            const actualizedProject = await Projects.findByIdAndUpdate(id, body);
+            res.status(200).send(actualizedProject);
+        }
+    } catch (error) {
+        res.status(500).send(error);
+    }
+}
+
 projectsController.deleteProject = async (req, res) => {
     try {
         const deletedProject = await Projects.findByIdAndDelete(req.params.id);
