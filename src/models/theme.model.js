@@ -39,7 +39,8 @@ const themeSchema = new Schema({
         required: true
     },
     autor_image: String,
-    link_image: String
+    link_image: String,
+    link_gif: String
 }, {
     versionKey: false,
     timestamps: true

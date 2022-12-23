@@ -46,6 +46,7 @@ projectsController.postProject = async (req, res) => {
         res.status(201).send(newProject);
     } catch (error) {
         res.status(500).send(error);
+        console.log(error);
     }
 }
 

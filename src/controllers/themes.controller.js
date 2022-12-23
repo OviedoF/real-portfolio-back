@@ -17,7 +17,7 @@ themesController.getThemes = async (req, res) => {
 
 themesController.getOneTheme = async (req, res) => {
     try {
-        const { id } = req.body;
+        const id = req.params.id;
         const themeFinded = await Themes.findById(id);
         
         res.status(200).send(themeFinded);
@@ -55,6 +55,18 @@ themesController.deleteTheme = async (req, res) => {
         await Themes.findByIdAndDelete(id);
 
         res.status(201).send('delete ;)');
+    } catch (error) {
+        res.status(500).send(error);
+    }
+}
+
+themesController.updateTheme = async (req, res) => {
+    try {
+        const id = req.params.id;
+
+        const updateTheme = await Themes.findByIdAndUpdate(id, req.body);
+
+        res.status(200).send(updateTheme)
     } catch (error) {
         res.status(500).send(error);
     }

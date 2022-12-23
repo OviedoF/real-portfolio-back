@@ -10,10 +10,6 @@ const projectSchema = new Schema({
         type: Array,
         required: true
     },
-    description: {
-        type: String,
-        required: true
-    },
     tools: {
         type: Array,
         required: true

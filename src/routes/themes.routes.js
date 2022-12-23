@@ -11,4 +11,5 @@ router.post('/', themesController.postTheme);
 
 router.delete('/:id', themesController.deleteTheme);
 
+router.put('/:id', themesController.updateTheme);
 module.exports = router;
