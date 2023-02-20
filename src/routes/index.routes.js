@@ -6,8 +6,12 @@ router.get('/', (req, res) => {
     res.render(path.join(__dirname, '..', 'public', 'index.html'));
 })
 
-router.get('/cv', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'public', 'FEDERICO NAHUEL OVIEDO CV.pdf'))
+router.get('/cv/es', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'public', 'FEDERICO OVIEDO CV ESPAÑOL.pdf'))
+})
+
+router.get('/cv/en', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'public', 'FEDERICO OVIEDO CV INGLÉS.pdf'))
 })
 
 module.exports = router;
